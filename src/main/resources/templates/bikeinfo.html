@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bysykkelstativer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Informasjon om bysykkelstativer</h1>
+
+<table th:if="${stations}">
+    <tr>
+        <th>Stativ</th>
+        <th>Antall ledige sykler</th>
+        <th>Antall ledige låser</th>
+    </tr>
+
+    <tr th:each="station: ${stations}">
+        <td th:text="${station.stationName}"/>
+        <td th:text="${station.numberOfBikesAvailable}"/>
+        <td th:text="${station.numberOfDocksAvailable}"/>
+    </tr>
+</table>
+
+<p th:if="${errorMessage}">
+    <strong th:text="${errorMessage}"></strong>
+</p>
+</body>
+</html>
